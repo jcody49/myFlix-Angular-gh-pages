@@ -30,7 +30,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError)
     );
   }
@@ -42,7 +42,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError)
     );
   }
@@ -54,7 +54,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError)
     );
   }
@@ -66,7 +66,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError)
     );
   }
@@ -83,8 +83,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
-      map((data) => data.FavoriteMovies),
+
       catchError(this.handleError)
     );
   }
@@ -102,7 +101,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError),
     );
   }
@@ -115,7 +114,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError)
     );
   }
@@ -147,7 +146,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-      map(this.extractResponseData),
+
       catchError(this.handleError)
     );
   }
@@ -157,10 +156,10 @@ export class FetchApiDataService {
       console.error('Some error occurred:', error.error.message);
     } else {
       console.error(
-        `Error Status code ${error.status}, ` +
-        `Error body is: ${error.error}`
+        `Error Status code ${error.status}, Error body is:`, error.error
       );
     }
     return throwError('Something bad happened; please try again later.');
   }
+  
 }

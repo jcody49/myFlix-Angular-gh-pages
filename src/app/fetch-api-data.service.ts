@@ -9,14 +9,29 @@ const apiUrl = 'https://myflixmovieapp-3df5d197457c.herokuapp.com/';
   providedIn: 'root'
 })
 export class FetchApiDataService {
+  /**
+   * 
+   * @param http 
+   */
   constructor(private http: HttpClient) {}
 
+  /**
+   * 
+   * @param userDetails 
+   * @returns 
+   */
   public userRegistration(userDetails: any): Observable<any> {
+    console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
       catchError(this.handleError)
     );
   }
 
+  /**
+   * 
+   * @param userDetails 
+   * @returns 
+   */
   public userLogin(userDetails: any): Observable<any> {
     return this.http.post(apiUrl + 'login', userDetails).pipe(
       catchError(this.handleError)

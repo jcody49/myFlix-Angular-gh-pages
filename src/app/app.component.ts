@@ -29,9 +29,11 @@ export class AppComponent {
     width: '280px'
     });
   }
+  /*
   openMoviesDialog(): void {
     this.dialog.open(MovieCardComponent, {
       width: '500px'
     });
   }
+  */
 }

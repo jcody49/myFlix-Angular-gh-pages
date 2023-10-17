@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service'
+import { FetchApiDataService } from '../fetch-api-data.service';
+//import {GetAllMoviesService} from '../fetch-api-data.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class MovieCardComponent {
   movies: any[] = []; // This is where the movies returned from the API call will be kept
   constructor(public fetchApiData: FetchApiDataService) { } // injecting FetchApiDataService
 
-ngOnInit(): void {
+ngOnInit(): void { 
   this.getMovies();
 }
 

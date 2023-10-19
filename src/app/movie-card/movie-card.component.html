@@ -1,7 +1,7 @@
 <!--the *ngFor directive is being used to display all returned movies in their own cards-->
 <!--"movies" refers to the movies variable declared in the component file-->
 <div style="display: flex;">
-    <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
+    <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto; margin-right: 16px;">
         <mat-card-header>
         <mat-card-title>{{movie.Title}}</mat-card-title>
             <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>

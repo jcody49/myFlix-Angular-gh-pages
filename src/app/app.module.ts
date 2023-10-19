@@ -19,16 +19,20 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 
 import { MatIconModule } from '@angular/material/icon';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 const appRoutes: Routes = [
-  { path: 'welcome', component: WelcomePageComponent }, //defined a welcome route that'll point to a WelcomePageComponent that will act as a welcome page with sign-up and login options for users
-  { path: 'movies', component: MovieCardComponent }, //point to the MovieCardComponent
-  //{path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' }, //point to the welcome path by default
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: ProfilePageComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
 @NgModule({
@@ -37,7 +41,9 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    ProfilePageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,8 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),//telling app.module that these are the routes the app needs to operate with
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

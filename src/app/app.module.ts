@@ -20,12 +20,14 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 import { MatIconModule } from '@angular/material/icon';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MovieDetailsDialogComponent } from './movie-details-dialog/movie-details-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     MovieCardComponent,
     WelcomePageComponent,
     ProfilePageComponent,
-    NavbarComponent
+    NavbarComponent,
+    MovieDetailsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),//telling app.module that these are the routes the app needs to operate with
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

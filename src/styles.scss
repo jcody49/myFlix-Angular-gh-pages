@@ -34,7 +34,8 @@ $myFlix-Angular-client-theme: mat.define-light-theme((color: (primary: $myFlix-A
 :root {
   --mat-card-title-text-size: 20px;
   --primary-bg-color: #8B0000;
-  --primary-text-color: #000000;
+  --primary-text-color: #ffffff;
+  
 }
 
 html,
@@ -72,4 +73,21 @@ a, a:visited {
     font-size: 16px;
   }
 }
+
+
+
+/* For larger screens, display movie cards in a grid */
+.movie-card {
+  width: 30%; /* Adjust the width as needed for larger screens */
+  /* Other styling for movie cards */
+}
+
+/* For smaller screens, display movie cards in a single column */
+@media screen and (max-width: 768px) {
+  .movie-card {
+    width: 100%; /* Make the cards take the full width to stack them vertically */
+    /* Additional styling for smaller screens, if needed */
+  }
+}
+
 

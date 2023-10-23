@@ -3,6 +3,7 @@ import { FetchApiDataService } from '../fetch-api-data.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+
 type User = { _id?: string, Username?: string, Password?: string, Email?: string, FavoriteMovies?: [] }
 
 @Component({

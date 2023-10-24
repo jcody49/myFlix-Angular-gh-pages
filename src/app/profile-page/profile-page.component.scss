@@ -2,25 +2,33 @@
 
 /* Change the background color of the "Your Profile" heading */
 .profile h1 {
-    background-color: #8B0000; /* Dark Red */
-    color: #fafafa; /* Ivory */
-  }
-  
-  /* Change the background color and text color of the user details */
-  .profile .grid > div {
-    background-color: #8B0000; /* Dark Red (Slightly darker) */
-    color: #fbfafa; /* Moccasin */
-  }
-  
-  /* Change the background color and text color of the form fields */
-  .profile .profile-form {
-    background-color: #00008B; /* Dark Blue */
-    color: #faf8f4; /* Ivory */
-  }
-  
-  /* Example: Change the button background color */
-  .profile button {
-    background-color: #B22222; /* Fire Brick (Darker Red) */
-    color: #f9f9f9; /* Ivory */
-  }
+  background-color: #8B0000; /* Dark Red */
+  color: #fafafa; /* Ivory */
+}
+
+/* Change the background color and text color of the user details */
+.profile .grid > div {
+  background-color: #8B0000; /* Dark Red (Slightly darker) */
+  color: #fbfafa; /* Moccasin */
+}
+
+/* Change the background color and text color of the form fields */
+.profile .profile-form {
+  background-color: var(--secondary-color); /* Dark Blue */
+  color: #faf8f4; /* Ivory */
+}
+
+/* Example: Change the button background color */
+.profile button {
+  background-color: #B22222; /* Fire Brick (Darker Red) */
+  color: #f9f9f9; /* Ivory */
+}
+
+.small-directions {
+  font-size: 0.75rem; /* Use rem units for responsiveness */
+}
+
+.user-info {
+  font-size: 1.275rem; /* Use rem units for responsiveness */
+}
   

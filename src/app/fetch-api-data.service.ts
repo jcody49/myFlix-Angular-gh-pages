@@ -3,6 +3,8 @@ import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
+import { map } from 'rxjs/operators';
+
 const apiUrl = 'https://myflixmovieapp-3df5d197457c.herokuapp.com/';
 
 @Injectable({
@@ -45,7 +47,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -57,7 +59,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -69,7 +71,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -81,7 +83,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -98,7 +100,8 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
+      map((data) => data.FavoriteMovies),
       catchError(this.handleError)
     );
   }
@@ -116,7 +119,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError),
     );
   }
@@ -129,7 +132,7 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
   }
@@ -161,9 +164,28 @@ export class FetchApiDataService {
         Authorization: 'Bearer ' + token,
       })
     }).pipe(
-
+      map(this.extractResponseData),
       catchError(this.handleError)
     );
+  }
+
+  /**
+   * 
+   * @param movieId 
+   * @returns boolean value if user contains the movie in their FavoriteMovies
+   */  
+  isFavoriteMovie(movieId: string): boolean {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if (user) {
+      return user.FavoriteMovies.includes(movieId);
+    }
+
+    return false;
+  }
+
+  private extractResponseData(res: any): any {
+    const body = res;
+    return body || {};
   }
 
   private handleError(error: HttpErrorResponse): any {

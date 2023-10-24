@@ -1,16 +1,18 @@
 <div class="profile" fxLayout="column" fxLayoutAlign="center center">
   <h1>Your Profile</h1>
   <div class="grid">
-    <div>
+    <div class="user-info" style="margin-bottom: 7%;">
       <p>Username: {{ user.Username }}</p>
       <p>Email: {{ user.Email }}</p>
     </div>
+    <div class="small-directions">
+      <p>Edit profile details below by clicking on the field you wish to change.</p>
+    </div>
     <mat-card>
       <mat-card-content>
-        <form class="profile-form">
+        <form fxLayout="column" class="profile-form">
           <mat-form-field>
             <input
-              
               matInput
               [(ngModel)]="userData.Username"
               placeholder="Username"

@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 
 
 
-
+/**
+ * The UserLoginFormComponent handles user login and sends form inputs to the backend
+ */
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -26,7 +28,9 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * Logs in the user, sends form inputs to the backend, and handles success and failure.
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       localStorage.setItem('user', JSON.stringify(result.user));
@@ -38,9 +42,6 @@ export class UserLoginFormComponent implements OnInit {
         duration: 2000
       });
       this.router.navigate(['movies']);
-
-
-      
 
     }, (result) => {
       this.snackBar.open('User login failed', 'OK', {

@@ -33,8 +33,7 @@ export class MovieCardComponent {
   }
 
   /**
-   * calls the getAllMovies api and sets the value
-   * @param id the movie id
+   * Fetches all movies from the API and sets the value of this.movies.
    */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -44,6 +43,10 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens a dialog to display movie genre information.
+   * @param genre - The genre object to display.
+   */
   openGenreDialog(genre: any): void {
     this.dialog.open(MovieDetailsDialogComponent, {
       data: {
@@ -53,6 +56,10 @@ export class MovieCardComponent {
     })
   }
 
+  /**
+   * Opens a dialog to display the movie's synopsis.
+   * @param synopsis - The movie's synopsis to display.
+   */
   openSynopsisDialog(synopsis: string): void {
     this.dialog.open(MovieDetailsDialogComponent, {
       data: {
@@ -62,6 +69,10 @@ export class MovieCardComponent {
     })
   }
 
+  /**
+   * Opens a dialog to display information about the movie's director.
+   * @param director - The director object to display.
+   */
   openDirectorDialog(director: any): void {
     this.dialog.open(MovieDetailsDialogComponent, {
       data: {
@@ -71,6 +82,11 @@ export class MovieCardComponent {
     })
   }
   
+  /**
+   * Checks if a movie is in the user's favorites.
+   * @param id - The movie's ID.
+   * @returns `true` if the movie is a favorite; otherwise, `false`.
+   */
   isFavorite(id: string): boolean {
     return this.fetchApiData.isFavoriteMovie(id)
   }
@@ -87,6 +103,10 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Calls the API to add a movie to the user's favorites and shows a snackbar if successful.
+   * @param id - The movie's ID.
+   */
   addFavorite(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe(() => {
       this.snackBar.open('added to favorites', 'OK', {

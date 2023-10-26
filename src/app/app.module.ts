@@ -30,6 +30,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MovieDetailsDialogComponent } from './movie-details-dialog/movie-details-dialog.component';
 
 
+
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -37,6 +38,9 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
+/**
+ * The main application module.
+ */
 @NgModule({
   declarations: [
     AppComponent,

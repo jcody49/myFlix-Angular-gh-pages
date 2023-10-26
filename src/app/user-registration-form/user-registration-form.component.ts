@@ -10,6 +10,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
+/**
+ * The UserRegistrationFormComponent handles user registration and sends form inputs to the backend.
+ */
 @Component({ // the @Component decorator to tell Angular that the class right below is a component
   
   //  instructions for wiring up the class with its stylesheet and template file
@@ -37,11 +40,13 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void { // The ngOnInit method is called once the component has received all its inputs
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * Registers a new user, sends form inputs to the backend, and handles success and failure.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
       console.log(result);
-      this.dialogRef.close(); // This will close the modal on success!
+      this.dialogRef.close(); // This will close the modal on success
       this.snackBar.open('user registered successfully!', 'OK', {
         duration: 2000
       });

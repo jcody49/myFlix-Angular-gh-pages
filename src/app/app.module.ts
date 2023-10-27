@@ -28,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MovieDetailsDialogComponent } from './movie-details-dialog/movie-details-dialog.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 
 
 
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     ProfilePageComponent,
     NavbarComponent,
-    MovieDetailsDialogComponent
+    MovieDetailsDialogComponent,
+    DeleteAccountComponent,
+    FavoriteMoviesComponent
   ],
   imports: [
     BrowserModule,

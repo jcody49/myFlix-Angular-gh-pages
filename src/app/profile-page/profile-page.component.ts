@@ -2,6 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteAccountComponent } from '../delete-account/delete-account.component';
+import { FavoriteMoviesComponent } from '../favorite-movies/favorite-movies.component';
+
 
 /**
  * Represents a user.
@@ -31,10 +35,13 @@ export class ProfilePageComponent {
 
   @Input() userData = { Username: '', Password: '', Email: '' };
   
+  favoriteMovies: any[] = [];
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
-    public router: Router
+    public router: Router,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -73,4 +80,21 @@ export class ProfilePageComponent {
       })
     })
   }
+  
+  /**
+   * Opens the delete account dialog.
+   */
+  openDeleteAccountDialog(): void {
+    const dialogRef = this.dialog.open(DeleteAccountComponent, {
+      width: '400px', 
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        // Call the deleteUser method from DeleteAccountComponent to handle account deletion
+        dialogRef.componentInstance.deleteUser();
+      }
+    });
+  }
+  
 }

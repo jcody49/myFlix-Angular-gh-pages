@@ -31,4 +31,18 @@
 .user-info {
   font-size: 1.275rem; /* Use rem units for responsiveness */
 }
-  
+
+.delete-link {
+  text-decoration: underline;
+  text-align: center;
+  font-size: smaller;
+}
+
+.delete-link-container {
+  justify-content: center;
+  text-align: center;
+}
+
+.user-info {
+  text-align: center;
+}

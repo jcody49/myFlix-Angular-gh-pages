@@ -18,6 +18,7 @@ $myFlix-Angular-client-accent: mat.define-palette(mat.$pink-palette, A200, A100,
 // The warn palette is optional (defaults to red).
 $myFlix-Angular-client-warn: mat.define-palette(mat.$red-palette);
 
+
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $myFlix-Angular-client-theme: mat.define-light-theme((
@@ -79,17 +80,7 @@ a, a:visited {
 
 
 
-/* For larger screens, display movie cards in a grid */
-.movie-card {
-  width: 30%; /* Adjust the width as needed for larger screens */
-}
 
-/* For smaller screens, display movie cards in a single column */
-@media screen and (max-width: 768px) {
-  .movie-card {
-    width: 100%; /* Make the cards take the full width to stack them vertically */
-  }
-}
 
 
 

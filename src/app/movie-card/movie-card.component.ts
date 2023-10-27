@@ -88,7 +88,7 @@ export class MovieCardComponent {
    * @returns `true` if the movie is a favorite; otherwise, `false`.
    */
   isFavorite(id: string): boolean {
-    return this.fetchApiData.isFavoriteMovie(id)
+    return this.fetchApiData.isFavoriteMovie(id) 
   }
 
   /**
@@ -108,6 +108,7 @@ export class MovieCardComponent {
    * @param id - The movie's ID.
    */
   addFavorite(id: string): void {
+    console.log('id: ', id)
     this.fetchApiData.addFavoriteMovie(id).subscribe(() => {
       this.snackBar.open('added to favorites', 'OK', {
         duration: 2000

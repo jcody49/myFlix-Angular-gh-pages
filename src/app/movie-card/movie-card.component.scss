@@ -2,10 +2,18 @@
 .fave-button {
     color: red;
 }
-  
+
+/* Default styles for larger screens (no flex-grow) */
 .card-container {
-    margin: 0 10px; 
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Media query for small screens */
+@media (max-width: 768px) {
+    .card-container {
+      flex-grow: 1;
+    }
 }
   
-

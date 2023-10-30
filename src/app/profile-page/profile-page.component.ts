@@ -58,6 +58,16 @@ export class ProfilePageComponent {
       Email: user.Email || "",
       Password: ""
     }
+
+    this.getUserFavorites(this.user.FavoriteMovies || []);
+  }
+
+  getUserFavorites(userFavorites: any[]): void{
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.favoriteMovies = resp.filter(
+        (m: { _id: any}) => userFavorites.indexOf(m._id) >= 0
+      );
+    });
   }
 
   /**

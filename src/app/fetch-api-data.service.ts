@@ -156,7 +156,7 @@ export class FetchApiDataService {
     user.FavoriteMovies.push(movieId);
     localStorage.setItem('user', JSON.stringify(user));
     
-    return this.http.put(apiUrl + `users/${user.Username}/${movieId}`, {}, {
+    return this.http.put(apiUrl + `users/${user.Username}/movies/${movieId}/favorites`, {}, {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: 'Bearer ' + token,
@@ -189,12 +189,14 @@ export class FetchApiDataService {
   /**
    * Deletes a user's account by sending an HTTP DELETE request to the server.
    *
+   * @param Username - The username of the user to delete.
    * @returns An observable that emits the result of the delete request, which can be a success response or an error.
    */
-  deleteUser(): Observable<any> {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+  deleteUser(Username: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/' + user._id, {
+    console.log('Token:', token);
+
+    return this.http.delete(apiUrl + 'users/' + Username, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -202,6 +204,7 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
+
 
   /**
    * Removes a movie from the user's list of favorite movies.
@@ -218,7 +221,7 @@ export class FetchApiDataService {
     }
     localStorage.setItem('user', JSON.stringify(user));
 
-    return this.http.delete(apiUrl + `users/${user.Username}/${movieId}`, {
+    return this.http.delete(apiUrl + `users/${user.Username}/movies/${movieId}/favorites`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })

@@ -3,6 +3,10 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
+/**
+ * The FavoriteMoviesComponent displays a user's favorite movies.
+ * It fetches and displays the movies marked as favorites by the user.
+ */
 @Component({
   selector: 'app-favorite-movies',
   templateUrl: './favorite-movies.component.html',
@@ -10,7 +14,7 @@ import { Router } from '@angular/router';
 })
 
 export class FavoriteMoviesComponent implements OnInit {
-  favoriteMovies: any[] = []; // You might want to specify a more specific type for favoriteMovies
+  favoriteMovies: any[] = []; 
 
   constructor(
     private fetchApiData: FetchApiDataService,

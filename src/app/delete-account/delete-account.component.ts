@@ -4,6 +4,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar'; // Import MatSnackBar from '@angular/material/snack-bar'
 import { Router } from '@angular/router';
 
+/**
+ * The DeleteAccountComponent handles user account deletion.
+ */
 @Component({
   selector: 'app-delete-account',
   templateUrl: './delete-account.component.html',

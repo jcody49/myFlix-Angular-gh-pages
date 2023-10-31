@@ -14,8 +14,8 @@ export type User = { _id?: string, Username?: string, Password?: string, Email?:
 })
 export class FetchApiDataService {
   /**
-   * 
-   * @param http 
+   * Initializes the service.
+   * @param http - The HttpClient service for making HTTP requests.
    */
   constructor(private http: HttpClient) {}
 
@@ -32,9 +32,9 @@ export class FetchApiDataService {
   }
 
   /**
-   * 
+   * Logs in a registered user
    * @param userDetails 
-   * @returns 
+   * @returns An observable representing the API response.
    */
   public userLogin(userDetails: any): Observable<any> {
     return this.http.post(apiUrl + 'login?' + new URLSearchParams(userDetails), {}).pipe(
@@ -156,7 +156,7 @@ export class FetchApiDataService {
     user.FavoriteMovies.push(movieId);
     localStorage.setItem('user', JSON.stringify(user));
     
-    return this.http.put(apiUrl + `users/${user.Username}/movies/${movieId}/favorites`, {}, {
+    return this.http.post(apiUrl + `users/${user.Username}/movies/${movieId}/favorites`, {}, {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: 'Bearer ' + token,

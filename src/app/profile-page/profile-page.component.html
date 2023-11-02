@@ -61,9 +61,14 @@
   </div>  
   <div class="favorite-movies">
     <h2>Your Favorite Movies</h2>
-    <ul>
-      <li *ngFor="let movie of favoriteMovies">{{ movie.Title }}</li>
-    </ul>
+    <div style="display: flex; flex-direction:row; flex-wrap: wrap; justify-content: center; flex-grow: 1;" class="card-container"></div>
+      <mat-card class="small-card"*ngFor="let movie of favoriteMovies;" style="flex: 0 0 calc(33.33% - 10px); margin: 10px auto;">
+        <mat-card-header class="movie-header">
+          <mat-card-title>{{movie.Title}}</mat-card-title>
+          <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img height="100%" src={{movie.ImagePath}} alt={{movie.Title}} />
+      </mat-card>
   </div>
 </div>
 
